@@ -38,12 +38,12 @@ spec:
 
           - name: Source__OAuth__Url
             valueFrom:
-              secretKeyRef:
+              configMapKeyRef:
                 name: {{ .Values.configurations.auth.existingSecretName }}
                 key: {{ .Values.configurations.auth.oauthTokenUrlKey }}
           - name: Source__OAuth__Audience
             valueFrom:
-              secretKeyRef:
+              configMapKeyRef:
                 name: {{ .Values.configurations.auth.existingSecretName }}
                 key: {{ .Values.configurations.auth.audienceKey }}
           
