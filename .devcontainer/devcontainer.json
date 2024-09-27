@@ -1,0 +1,25 @@
+{
+    "name": "Guard Helm",
+    "image": "mcr.microsoft.com/devcontainers/javascript-node:1-18-bullseye",
+    "features": {
+        "ghcr.io/devcontainers/features/aws-cli:1": {},
+        "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {},
+        "ghcr.io/devcontainers/features/git:1": {},
+        "ghcr.io/devcontainers-contrib/features/pre-commit:2": {},
+        "ghcr.io/EliiseS/devcontainer-features/bash-profile:1": {
+            "command": "alias k=kubectl"
+        },
+        // "ghcr.io/meaningful-ooo/devcontainer-features/homebrew:2": {},
+        "ghcr.io/devcontainers-contrib/features/kubectx-kubens:1": {}
+    },
+    "mounts": [
+        "source=${env:USERPROFILE}/.aws,target=/configuration/.aws,type=bind",
+        "source=${env:USERPROFILE}/.kube,target=/configuration/.kube,type=bind"
+    ],
+    "postStartCommand": [
+        "/bin/bash",
+        "-c",
+        "ln -s /configuration/.aws $HOME/.aws; ln -s /configuration/.kube $HOME/.kube;"
+    ],
+    "updateRemoteUserUID": true
+}

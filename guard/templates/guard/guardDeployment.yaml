@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: guard
+  labels:
+    app: guard
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: guard
+  template:
+    metadata:
+      labels:
+        app: guard
+    spec:
+      imagePullSecrets:
+      - name: "sf-gitlab-registry-creds"
+      containers:
+      - name: guard
+        image: registry.gitlab.com/innovatrics/smartface/guard:v1.0.15
+        ports:
+          - containerPort: 8000
+        env:
+          - name: HOST
+            value: "0.0.0.0"
+          - name: PORT
+            value: "8000"
+          - name: CORE_API_ROOT
+            value: {{ printf "http://%s//api/v1" (quote .Values.smartface.authApi.dnsHost) | quote }}
+          - name: GRAPHQL_ROOT
+            value: {{ printf "https://%s/graphql" (quote .Values.smartface.authApi.dnsHost) | quote }}          
+          - name: AUTH0_AUDIENCE
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.configurations.auth.existingSecretName }}
+                key: {{ .Values.configurations.auth.audienceKey }}
+          - name: "AUTH0_DOMAIN"
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.configurations.stationAuth.existingSecretName }}
+                key: {{ .Values.configurations.stationAuth.domainKey }}
+          - name: "AUTH0_ISSUER"
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.configurations.stationAuth.existingSecretName }}
+                key: {{ .Values.configurations.stationAuth.issuerKey }}
+          - name: "AUTH0_JWKS_URI"
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.configurations.stationAuth.existingSecretName }}
+                key: {{ .Values.configurations.stationAuth.jwksUriKey }}
+          - name: "AUTH0_AUTHENTICATION_ENABLED"
+            value: "true"
+          - name: "AUTH0_CLIENT_ID"
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.configurations.tenantAuth.existingSecretName }}
+                key: {{ .Values.configurations.tenantAuth.clientIdKey }}
+          - name: AUTH0_CLIENT_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.configurations.tenantAuth.existingSecretName }}
+                key: {{ .Values.configurations.tenantAuth.clientSecretKey }}

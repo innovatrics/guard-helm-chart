@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auto-enroll-deployment
+  labels:
+    app: auto-enroll
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: auto-enroll
+  template:
+    metadata:
+      labels:
+        app: auto-enroll
+    spec:
+      imagePullSecrets:
+      - name: "sf-gitlab-registry-creds"
+      containers:
+      - name: auto-enroll
+        image: registry.gitlab.com/innovatrics/smartface/integrations-auto-enroll:0.2.1
+        ports:
+        - containerPort: 80
+        env:
+          - name: StreamMappings__0__StreamId
+            value: "0da824f8-a6f6-469a-b707-278d7850b50b"
+          - name: StreamMappings__0__WatchlistIds__0
+            value: "3381a209-97d4-479c-b268-c02dc107c450"
+
+          - name: Source__GraphQL__Host
+            value: {{ .Values.smartface.graphqlApi.dnsHost }}
+          - name: Source__GraphQL__Port
+            value: "80"
+          - name: Target__Host
+            value: {{ .Values.smartface.authApi.dnsHost }}
+          - name: Target__Port
+            value: "443"
+
+          - name: Source__OAuth__Url
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.configurations.auth.existingSecretName }}
+                key: {{ .Values.configurations.auth.oauthTokenUrlKey }}
+          - name: Source__OAuth__Audience
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.configurations.auth.existingSecretName }}
+                key: {{ .Values.configurations.auth.audienceKey }}
+          
+          - name: Source__OAuth__ClientId
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.configurations.tenantAuth.existingSecretName }}
+                key: {{ .Values.configurations.tenantAuth.clientIdKey }}
+          - name: Source__OAuth__ClientSecret
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.configurations.tenantAuth.existingSecretName }}
+                key: {{ .Values.configurations.tenantAuth.clientSecretKey }}

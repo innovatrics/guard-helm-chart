@@ -1,0 +1,45 @@
+smartface:
+  authApi:
+    dnsHost: "api.guard.smartfacecloud.com"
+  graphqlApi:
+    dnsHost: "graphql.guard.smartfacecloud.com"
+
+imagePullSecrets:
+  - name: "sf-gitlab-registry-creds"
+
+configurations:
+  database:
+    # -- connection string needs to be provided as a dependency of the chart
+    existingSecretName: "db-cs"    
+    # -- key within the existing secret which contains database instance endpoint
+    endpointKey: "server"
+    # -- key within the existing secret which contains username for databse
+    usernameKey: "username"
+    # -- key within the existing secret which contains password to database server
+    passwordKey: "password"
+
+  tenantAuth:
+    # -- guard pods needs authenticate against smartface services therefore we need to provide credentials
+    existingSecretName: "tenant-auth-credentials"
+    # -- key within the existing secret which contains tenant client id
+    clientIdKey : "client_id"
+    # -- key within the existing secret which contains tenant client secret
+    clientSecretKey : "client_secret"
+
+  auth:
+    # -- auth0 stuff we need to do authentication
+    existingSecretName: "auth-config"
+    # -- key within the existing secret which contains audience
+    audienceKey: "audience"
+    # -- key within the existing secret which contains url, where we can get token
+    oauthTokenUrlKey: "oauth_token_url"
+
+  stationAuth:
+    existingSecretName: "station-auth-config"
+    domainKey: "domain"
+    issuerKey: "issuer"
+    jwksUriKey: "jwks_uri"
+
+guard:
+  dnsHost: "guard.smartfacecloud.com"
+
