@@ -29,7 +29,7 @@ spec:
           - name: CORE_API_ROOT
             value: {{ printf "http://%s//api/v1" .Values.smartface.authApi.dnsHost | quote }}
           - name: GRAPHQL_ROOT
-            value: {{ printf "https://%s/graphql" .Values.smartface.authApi.dnsHost | quote }}          
+            value: {{ printf "https://%s/graphql" .Values.smartface.graphqlApi.dnsHost | quote }}          
           - name: AUTH0_AUDIENCE
             valueFrom:
               configMapKeyRef:
@@ -55,10 +55,10 @@ spec:
           - name: "AUTH0_CLIENT_ID"
             valueFrom:
               secretKeyRef:
-                name: {{ .Values.configurations.tenantAuth.existingSecretName }}
-                key: {{ .Values.configurations.tenantAuth.clientIdKey }}
+                name: {{ .Values.configurations.stationAuthCredentials.existingSecretName }}
+                key: {{ .Values.configurations.stationAuthCredentials.clientIdKey }}
           - name: AUTH0_CLIENT_SECRET
             valueFrom:
               secretKeyRef:
-                name: {{ .Values.configurations.tenantAuth.existingSecretName }}
-                key: {{ .Values.configurations.tenantAuth.clientSecretKey }}
+                name: {{ .Values.configurations.stationAuthCredentials.existingSecretName }}
+                key: {{ .Values.configurations.stationAuthCredentials.clientSecretKey }}

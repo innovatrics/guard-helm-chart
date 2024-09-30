@@ -40,6 +40,11 @@ configurations:
     issuerKey: "issuer"
     jwksUriKey: "jwks_uri"
 
+  stationAuthCredentials:
+    existingSecretName: "station-auth-credentials"
+    clientIdKey: "client_id"
+    clientSecretKey: "client_secret"
+
 guard:
   dnsHost: "guard.smartfacecloud.com"
 
