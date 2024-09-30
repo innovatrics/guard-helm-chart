@@ -40,6 +40,10 @@ configurations:
     issuerKey: "issuer"
     jwksUriKey: "jwks_uri"
 
+  guardSecrets:
+    existingSecretName: "guard-secrets"
+    hasuraAdminSecretKey: "HASURA_GRAPHQL_ADMIN_SECRET"
+
 guard:
   dnsHost: "guard.smartfacecloud.com"
 

@@ -29,7 +29,14 @@ spec:
           - name: CORE_API_ROOT
             value: {{ printf "http://%s//api/v1" .Values.smartface.authApi.dnsHost | quote }}
           - name: GRAPHQL_ROOT
-            value: {{ printf "https://%s/graphql" .Values.smartface.authApi.dnsHost | quote }}          
+            value: {{ printf "https://%s/graphql" .Values.smartface.authApi.dnsHost | quote }}
+          - name: HASURA_GRAPHQL_ENDPOINT
+            value: "http://guard-graphql-engine:8080/v1/graphql"
+          - name: HASURA_GRAPHQL_ADMIN_SECRET
+            valueFrom:
+              configMapKeyRef:
+                name: {{ .Values.configurations.guardSecrets.existingSecretName }}
+                key: {{ .Values.configurations.guardSecrets.hasuraAdminSecretKey }}
           - name: AUTH0_AUDIENCE
             valueFrom:
               configMapKeyRef:
@@ -62,3 +69,8 @@ spec:
               secretKeyRef:
                 name: {{ .Values.configurations.tenantAuth.existingSecretName }}
                 key: {{ .Values.configurations.tenantAuth.clientSecretKey }}
+          - name: AUTH0_URL
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.configurations.auth.existingSecretName }}
+                key: {{ .Values.configurations.auth.oauthTokenUrlKey }}
