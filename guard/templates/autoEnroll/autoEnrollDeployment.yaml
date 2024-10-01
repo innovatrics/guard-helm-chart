@@ -23,9 +23,9 @@ spec:
         - containerPort: 80
         env:
           - name: StreamMappings__0__StreamId
-            value: "0da824f8-a6f6-469a-b707-278d7850b50b"
+            value: "232ee9bf-4f13-48bf-bf53-eb9e0a6cf5bb"
           - name: StreamMappings__0__WatchlistIds__0
-            value: "3381a209-97d4-479c-b268-c02dc107c450"
+            value: "967e7b2f-0a93-4e78-b11f-2bdb4f5e1177"
 
           - name: Source__GraphQL__Host
             value: {{ .Values.smartface.graphqlApi.dnsHost }}
