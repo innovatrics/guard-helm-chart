@@ -18,7 +18,7 @@ spec:
       - name: "sf-gitlab-registry-creds"
       containers:
       - name: guard
-        image: registry.gitlab.com/innovatrics/smartface/guard:v1.0.15
+        image: registry.gitlab.com/innovatrics/smartface/guard:v1.0.25
         ports:
           - containerPort: 8000
         env:
@@ -64,13 +64,23 @@ spec:
               secretKeyRef:
                 name: {{ .Values.configurations.stationAuthCredentials.existingSecretName }}
                 key: {{ .Values.configurations.stationAuthCredentials.clientIdKey }}
-          - name: AUTH0_CLIENT_SECRET
+          - name: AUTH0_M2M_CLIENT_SECRET
             valueFrom:
               secretKeyRef:
-                name: {{ .Values.configurations.stationAuthCredentials.existingSecretName }}
-                key: {{ .Values.configurations.stationAuthCredentials.clientSecretKey }}
-          - name: AUTH0_URL
+                name: {{ .Values.configurations.tenantAuth.existingSecretName }}
+                key: {{ .Values.configurations.tenantAuth.clientSecretKey }}
+          - name: AUTH0_M2M_URL
             valueFrom:
               configMapKeyRef:
                 name: {{ .Values.configurations.auth.existingSecretName }}
                 key: {{ .Values.configurations.auth.oauthTokenUrlKey }}
+          - name: AUTH0_M2M_AUDIENCE
+            valueFrom:
+              configMapKeyRef:
+                name: {{ .Values.configurations.auth.existingSecretName }}
+                key: {{ .Values.configurations.auth.audienceKey }}
+          - name: AUTH0_M2M_CLIENT_ID
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.configurations.tenantAuth.existingSecretName }}
+                key: {{ .Values.configurations.tenantAuth.clientIdKey }}
