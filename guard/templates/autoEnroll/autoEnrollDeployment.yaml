@@ -19,6 +19,7 @@ spec:
       containers:
       - name: auto-enroll
         image: registry.gitlab.com/innovatrics/smartface/integrations-auto-enroll:0.2.1
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
         env:
@@ -26,6 +27,14 @@ spec:
             value: "232ee9bf-4f13-48bf-bf53-eb9e0a6cf5bb"
           - name: StreamMappings__0__WatchlistIds__0
             value: "967e7b2f-0a93-4e78-b11f-2bdb4f5e1177"
+          - name: RegisterMinFaceSize
+            value: "15"
+          - name: RegisterMaxFaceSize
+            value: "600"
+          - name: RegisterFaceConfidence
+            value: "400"
+          - name: DebugOutputFolder
+            value: ""
 
           - name: Source__GraphQL__Host
             value: {{ .Values.smartface.graphqlApi.dnsHost }}
@@ -57,3 +66,5 @@ spec:
               secretKeyRef:
                 name: {{ .Values.configurations.tenantAuth.existingSecretName }}
                 key: {{ .Values.configurations.tenantAuth.clientSecretKey }}
+          
+
