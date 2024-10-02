@@ -27,13 +27,13 @@ spec:
             value: "232ee9bf-4f13-48bf-bf53-eb9e0a6cf5bb"
           - name: StreamMappings__0__WatchlistIds__0
             value: "967e7b2f-0a93-4e78-b11f-2bdb4f5e1177"
-          - name: RegisterMinFaceSize
+          - name: Config__RegisterMinFaceSize
             value: "15"
-          - name: RegisterMaxFaceSize
+          - name: Config__RegisterMaxFaceSize
             value: "600"
-          - name: RegisterFaceConfidence
+          - name: Config__RegisterFaceConfidence
             value: "400"
-          - name: DebugOutputFolder
+          - name: Config__DebugOutputFolder
             value: ""
 
           - name: Source__GraphQL__Host
@@ -44,6 +44,8 @@ spec:
             value: {{ .Values.smartface.authApi.dnsHost }}
           - name: Target__Port
             value: "443"
+          - name: Target__Schema
+            value: "https"
 
           - name: Source__OAuth__Url
             valueFrom:
