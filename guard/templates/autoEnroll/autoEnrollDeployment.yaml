@@ -23,10 +23,8 @@ spec:
         ports:
         - containerPort: 80
         env:
-          - name: StreamMappings__0__StreamId
-            value: "232ee9bf-4f13-48bf-bf53-eb9e0a6cf5bb"
-          - name: StreamMappings__0__WatchlistIds__0
-            value: "967e7b2f-0a93-4e78-b11f-2bdb4f5e1177"
+          - name: Config__Conditions__WatchlistIds__0
+            value: "unknown"
           - name: Config__RegisterMinFaceSize
             value: "15"
           - name: Config__RegisterMaxFaceSize
