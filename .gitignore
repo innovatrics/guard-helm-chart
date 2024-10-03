@@ -1,1 +1,3 @@
 *.values.yaml
+guard/secrets/
+
