@@ -84,3 +84,110 @@ spec:
               secretKeyRef:
                 name: {{ .Values.configurations.tenantAuth.existingSecretName }}
                 key: {{ .Values.configurations.tenantAuth.clientIdKey }}
+
+          - name: FE_VAPID_KEY
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.configurations.firebaseSecrets.existingSecretNameKey }}
+                key: {{ .Values.configurations.firebaseSecrets.existingFeVapidKeyKey }}
+          - name: FE_API_KEY
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.configurations.firebaseSecrets.existingSecretNameKey }}
+                key: {{ .Values.configurations.firebaseSecrets.existingFeApiKeyKey }}
+          - name: FE_AUTH_DOMAIN
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.configurations.firebaseSecrets.existingSecretNameKey }}
+                key: {{ .Values.configurations.firebaseSecrets.existingFeAuthDomainKey }}     
+          - name: FE_PROJECT_ID
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.configurations.firebaseSecrets.existingSecretNameKey }}
+                key: {{ .Values.configurations.firebaseSecrets.existingFeProjectIdKey }}
+          - name: FE_STORAGE_BUCKET
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.configurations.firebaseSecrets.existingSecretNameKey }}
+                key: {{ .Values.configurations.firebaseSecrets.existingFeStorageBucketKey }}
+          - name: FE_MESSAGING_SENDER_ID
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.configurations.firebaseSecrets.existingSecretNameKey }}
+                key: {{ .Values.configurations.firebaseSecrets.existingFeMessigingSenderIdKey }}
+          - name: FE_APP_ID
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.configurations.firebaseSecrets.existingSecretNameKey }}
+                key: {{ .Values.configurations.firebaseSecrets.existingFeAppIdKey }}
+          - name: FE_MEASUREMENT_ID
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.configurations.firebaseSecrets.existingSecretNameKey }}
+                key: {{ .Values.configurations.firebaseSecrets.existingFeMeasurmentIdKey }}
+          - name: NODE_TYPE
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.configurations.firebaseSecrets.existingSecretNameKey }}
+                key: {{ .Values.configurations.firebaseSecrets.existingNodeTypeKey }}
+          - name: NODE_PROJECT_ID
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.configurations.firebaseSecrets.existingSecretNameKey }}
+                key: {{ .Values.configurations.firebaseSecrets.existingNodeProjectIdKey }}
+          - name: NODE_PRIVATE_KEY_ID
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.configurations.firebaseSecrets.existingSecretNameKey }}
+                key: {{ .Values.configurations.firebaseSecrets.existingNodePrivateKeyIdKey }}
+          - name: NODE_PRIVATE_KEY
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.configurations.firebaseSecrets.existingSecretNameKey }}
+                key: {{ .Values.configurations.firebaseSecrets.existingNodePriveteKeyKey }}
+          - name: NODE_CLIENT_EMAIL
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.configurations.firebaseSecrets.existingSecretNameKey }}
+                key: {{ .Values.configurations.firebaseSecrets.existingNodeClientEmailKey }}
+          - name: NODE_CLIENT_ID
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.configurations.firebaseSecrets.existingSecretNameKey }}
+                key: {{ .Values.configurations.firebaseSecrets.existingNodeClientIdKey }}
+          - name: NODE_AUTH_URI
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.configurations.firebaseSecrets.existingSecretNameKey }}
+                key: {{ .Values.configurations.firebaseSecrets.existingNodeAuthUriKey }}
+          - name: NODE_TOKEN_URI
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.configurations.firebaseSecrets.existingSecretNameKey }}
+                key: {{ .Values.configurations.firebaseSecrets.existingNodeTokenUriKey }}
+          - name: NODE_AUTH_PROVIDER_X509_CERT_URL
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.configurations.firebaseSecrets.existingSecretNameKey }}
+                key: {{ .Values.configurations.firebaseSecrets.existingNodeAuthProviderX509CertUrlKey }}
+          - name: NODE_CLIENT_X509_CERT_URL
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.configurations.firebaseSecrets.existingSecretNameKey }}
+                key: {{ .Values.configurations.firebaseSecrets.existingNodeClinetX509CertUrlKey }}
+          - name: NODE_UNIVERSE_DOMAIN
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.configurations.firebaseSecrets.existingSecretNameKey }}
+                key: {{ .Values.configurations.firebaseSecrets.existingNodeUniverseDomainKey }}
+          - name: TRIGGER_WATCHLIST_NAME_0
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.configurations.firebaseSecrets.existingSecretNameKey }}
+                key: {{ .Values.configurations.firebaseSecrets.existingTriggerWatchlistNameKey }}
+          - name: TRIGGER_WATCHLIST_ATTENTION_LEVEL_0
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.configurations.firebaseSecrets.existingSecretNameKey }}
+                key: {{ .Values.configurations.firebaseSecrets.existingTriggerWatchlistAttentionLevelKey }}
+          
