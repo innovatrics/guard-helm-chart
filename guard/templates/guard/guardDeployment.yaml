@@ -18,7 +18,7 @@ spec:
       - name: "sf-gitlab-registry-creds"
       containers:
       - name: guard
-        image: registry.gitlab.com/innovatrics/smartface/guard:v1.0.25
+        image: registry.gitlab.com/innovatrics/smartface/guard:v1.0.45
         ports:
           - containerPort: 8000
         env:
@@ -27,7 +27,7 @@ spec:
           - name: PORT
             value: "8000"
           - name: CORE_API_ROOT
-            value: {{ printf "http://%s//api/v1" .Values.smartface.authApi.dnsHost | quote }}
+            value: {{ printf "https://%s//api/v1" .Values.smartface.authApi.dnsHost | quote }}
           - name: GRAPHQL_ROOT
             value: {{ printf "https://%s/graphql" .Values.smartface.graphqlApi.dnsHost | quote }}  
           - name: HASURA_GRAPHQL_ENDPOINT
@@ -37,6 +37,10 @@ spec:
               secretKeyRef:
                 name: {{ .Values.configurations.guardSecrets.existingSecretName }}
                 key: {{ .Values.configurations.guardSecrets.hasuraAdminSecretKey }}
+          - name: LOG_LEVEL
+            value: "debug"
+          - name: ENABLE_LOGGING
+            value: "true"
           - name: AUTH0_AUDIENCE
             valueFrom:
               configMapKeyRef:
@@ -190,4 +194,7 @@ spec:
               secretKeyRef:
                 name: {{ .Values.configurations.firebaseSecrets.existingSecretNameKey }}
                 key: {{ .Values.configurations.firebaseSecrets.existingTriggerWatchlistAttentionLevelKey }}
-          
+          - name: TRIGGER_WATCHLIST_NAME_1
+            value: "unknown"
+          - name: TRIGGER_WATCHLIST_ATTENTION_LEVEL_1
+            value: "2"
