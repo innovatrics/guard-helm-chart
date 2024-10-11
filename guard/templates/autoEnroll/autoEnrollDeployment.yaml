@@ -18,7 +18,7 @@ spec:
       - name: "sf-gitlab-registry-creds"
       containers:
       - name: auto-enroll
-        image: registry.gitlab.com/innovatrics/smartface/integrations-auto-enroll:0.2.1
+        image: registry.gitlab.com/innovatrics/smartface/integrations-auto-enroll:0.2.4
         imagePullPolicy: Always
         ports:
         - containerPort: 80
@@ -26,11 +26,11 @@ spec:
           - name: Config__Conditions__WatchlistIds__0
             value: "unknown"
           - name: Config__RegisterMinFaceSize
-            value: "15"
+            value: "35"
           - name: Config__RegisterMaxFaceSize
             value: "600"
           - name: Config__RegisterFaceConfidence
-            value: "400"
+            value: "1000"
           - name: Config__DebugOutputFolder
             value: ""
 

@@ -18,7 +18,7 @@ spec:
       - name: "sf-gitlab-registry-creds"
       containers:
       - name: guard
-        image: registry.gitlab.com/innovatrics/smartface/guard:v1.0.45
+        image: registry.gitlab.com/innovatrics/smartface/guard:v1.0.64
         ports:
           - containerPort: 8000
         env:
@@ -27,7 +27,7 @@ spec:
           - name: PORT
             value: "8000"
           - name: CORE_API_ROOT
-            value: {{ printf "https://%s//api/v1" .Values.smartface.authApi.dnsHost | quote }}
+            value: {{ printf "https://%s/api/v1" .Values.smartface.authApi.dnsHost | quote }}
           - name: GRAPHQL_ROOT
             value: {{ printf "https://%s/graphql" .Values.smartface.graphqlApi.dnsHost | quote }}  
           - name: HASURA_GRAPHQL_ENDPOINT
@@ -185,16 +185,36 @@ spec:
                 name: {{ .Values.configurations.firebaseSecrets.existingSecretNameKey }}
                 key: {{ .Values.configurations.firebaseSecrets.existingNodeUniverseDomainKey }}
           - name: TRIGGER_WATCHLIST_NAME_0
-            valueFrom:
-              secretKeyRef:
-                name: {{ .Values.configurations.firebaseSecrets.existingSecretNameKey }}
-                key: {{ .Values.configurations.firebaseSecrets.existingTriggerWatchlistNameKey }}
+            value: "VIP"
           - name: TRIGGER_WATCHLIST_ATTENTION_LEVEL_0
-            valueFrom:
-              secretKeyRef:
-                name: {{ .Values.configurations.firebaseSecrets.existingSecretNameKey }}
-                key: {{ .Values.configurations.firebaseSecrets.existingTriggerWatchlistAttentionLevelKey }}
+            value: "4"
           - name: TRIGGER_WATCHLIST_NAME_1
             value: "unknown"
           - name: TRIGGER_WATCHLIST_ATTENTION_LEVEL_1
-            value: "2"
+            value: "1"
+          - name: TRIGGER_WATCHLIST_NAME_2
+            value: "High risk"
+          - name: TRIGGER_WATCHLIST_ATTENTION_LEVEL_2
+            value: "3"
+          - name: TRIGGER_WATCHLIST_NAME_3
+            value: "Visitors"
+          - name: TRIGGER_WATCHLIST_ATTENTION_LEVEL_3
+            value: "0"
+          - name: TRIGGER_WATCHLIST_NAME_4
+            value: "Employes"
+          - name: TRIGGER_WATCHLIST_ATTENTION_LEVEL_4
+            value: "0"
+          - name: LOITERING_MINIMAL_DETECTION_INTERVAL_SECONDS
+            value: "30"
+          - name: LOITERING_DETECTION_OCCURENCES_THRESHOLD
+            value: "3"
+          - name: LOITERING_ACTIVATION_LIMIT_SECONDS
+            value: "120"
+          - name: UNKNOWN_WATCHLIST_NAME
+            value: "unknown"
+          - name: UNKNOWN_PERSON_VISIT_TIMESPAN_SECONDS
+            value: "300"
+          - name: UNKNOWN_PERSON_ACTIVATION_LIMIT_SECONDS
+            value: "60"
+          - name: EXPIRED_MEMBER_ACTIVATION_LIMIT_SECONDS
+            value: "60"
