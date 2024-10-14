@@ -31,8 +31,14 @@ spec:
             value: "600"
           - name: Config__RegisterFaceConfidence
             value: "1000"
+          - name: Config__Conditions_YawAngle__Min
+            value: "-16"
+          - name: Config__Conditions_YawAngle__Max
+            value: "16"
           - name: Config__DebugOutputFolder
             value: ""
+          - name: Config__MaxParallelActionBlocks
+            value: "1"
 
           - name: Source__GraphQL__Host
             value: {{ .Values.smartface.graphqlApi.dnsHost }}
