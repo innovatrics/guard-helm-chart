@@ -58,20 +58,6 @@ configurations:
     existingFeMessigingSenderIdKey: "FE_MESSAGING_SENDER_ID"
     existingFeAppIdKey: "FE_APP_ID"
     existingFeMeasurmentIdKey: "FE_MEASUREMENT_ID"
-    
-    existingNodeTypeKey: "NODE_TYPE"
-    existingNodeProjectIdKey: "NODE_PROJECT_ID"
-    existingNodePrivateKeyIdKey: "NODE_PRIVATE_KEY_ID"
-    existingNodePriveteKeyKey: "NODE_PRIVATE_KEY"
-    existingNodeClientEmailKey: "NODE_CLIENT_EMAIL"
-    existingNodeClientIdKey: "NODE_CLIENT_ID"
-    existingNodeAuthUriKey: "NODE_AUTH_URI"
-    existingNodeTokenUriKey: "NODE_TOKEN_URI"
-    existingNodeAuthProviderX509CertUrlKey: "NODE_AUTH_PROVIDER_X509_CERT_URL"
-    existingNodeClinetX509CertUrlKey: "NODE_CLIENT_X509_CERT_URL"
-    existingNodeUniverseDomainKey: "NODE_UNIVERSE_DOMAIN"
-    existingTriggerWatchlistNameKey: "TRIGGER_WATCHLIST_NAME_0"
-    existingTriggerWatchlistAttentionLevelKey: "TRIGGER_WATCHLIST_ATTENTION_LEVEL_0"
 
   firebase:
     vapidPublicKey: "xxxx"
