@@ -1,4 +1,37 @@
-## Installation
+# Installation
+
+This is guide is about how to create infrastructure for guard application from scratch.
+(Currently a lot of part is missing, and We will add them when needed)
+
+## Creation of Firebase
+
+1. When you run terraform you also created firebase application and some of firebase configuration was stored in kubernetes secret `firebase-secret-terraform`. However in time we were doing this infrastrucute as a code, somethings were not possible to automate. Becouse of that you need do this steps manually.
+2. Log to your firebase account and go to your firebase project. Then navigate in left menu to project settings. (Settings icon next to Project Overview).
+3. In the project settings navigate to Cloud Messaging section. At bottom on the screen is section Web configuration. Click on Generate key pair. Private and public key was genareted.
+4. Copy the public key value and use it in values when installing helm. Under section:
+```bash
+    firebase:
+        vapidPublicKey: <Vapid public key placeholder>
+```
+5. Then navigate to Project settings/Service Accounts
+6. Firebase Admin SDK should be selected. Click on the Generate new private key and download json with values.
+7. Supply your helm values with values from json file you downloaded.
+```bash
+    firebase:
+        vapidPublicKey: <value placeholder>
+        projectId: <value placeholder>
+        privateKeyId: <value placeholder>
+        clientEmail: <value placeholder>
+        clientId: <value placeholder>
+        authUri: <value placeholder>
+        tokenUri: <value placeholder>
+        authProviderx509CertUrl: <value placeholder>
+        clientx509CertUrl: <value placeholder>
+        universe_domain: <value placeholder>
+```
+8. When installing helm chart add those helm values
+
+## For innovatrics dev section
 
 # on your local machine, if you want use gui for observing kubernetes cluster
 
