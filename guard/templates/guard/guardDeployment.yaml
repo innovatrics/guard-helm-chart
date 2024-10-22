@@ -18,7 +18,7 @@ spec:
       - name: "sf-gitlab-registry-creds"
       containers:
       - name: guard
-        image: registry.gitlab.com/innovatrics/smartface/guard:v1.0.66
+        image: registry.gitlab.com/innovatrics/smartface/guard:v1.0.69
         ports:
           - containerPort: 8000
         env:
