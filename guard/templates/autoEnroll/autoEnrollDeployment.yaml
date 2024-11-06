@@ -26,11 +26,11 @@ spec:
           - name: Config__Conditions__WatchlistIds__0
             value: "unknown"
           - name: Config__RegisterMinFaceSize
-            value: "35"
+            value: "25"
           - name: Config__RegisterMaxFaceSize
             value: "600"
           - name: Config__RegisterFaceConfidence
-            value: "3000"
+            value: "1000"
           - name: Config__Conditions_YawAngle__Min
             value: "-20"
           - name: Config__Conditions_YawAngle__Max
@@ -39,6 +39,12 @@ spec:
             value: "-20"
           - name: Config__Conditions_RollAngle__Max
             value: "20"
+          - name: Config__Conditions__Sharpness__Min
+            value: "1000"
+          - name: Config__Conditions__FaceSize__Min
+            value: "35"
+          - name: Config__Conditions__FaceQuality__Min
+            value: "2000"
           - name: Config__DebugOutputFolder
             value: ""
           - name: Config__MaxParallelActionBlocks
