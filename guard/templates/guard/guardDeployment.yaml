@@ -18,7 +18,7 @@ spec:
       - name: "sf-gitlab-registry-creds"
       containers:
       - name: guard
-        image: registry.gitlab.com/innovatrics/smartface/guard:v1.0.69
+        image: registry.gitlab.com/innovatrics/smartface/guard:v1.0.98
         ports:
           - containerPort: 8000
         env:
@@ -217,5 +217,40 @@ spec:
           - name: UNKNOWN_PERSON_ACTIVATION_LIMIT_SECONDS
             value: "60"
           - name: EXPIRED_MEMBER_ACTIVATION_LIMIT_SECONDS
+            value: "60"    
+          - name: DATA_RETENTION_INTERVAL_HOURS
+            value: "1"
+          - name: WATCHLIST_VISITOR_EXPIRATION_SECONDS_Visitors
+            value: "43200"
+          - name: WATCHLIST_VISITOR_EXPIRATION_SECONDS_VIP
+            value: "0"
+          - name: PERSON_WITH_ESCORT_VALID_ESCORT_WATCHLISTS
+            value: "Employes"
+          - name: ENABLE_LOGGING
+            value: "true"
+          - name: LOG_LEVEL
+            value: "debug"
+          - name: PERSON_WITH_ESCORT_ACTIVATION_LIMIT_SECONDS
             value: "60"
+          - name: PERSON_WITH_ESCORT_SAME_PAIR_OCCURRENCE_THRESHOLD
+            value: "4"
+          - name: PERSON_WITH_ESCORT_ATTENTION_LEVEL
+            value: "0"
+          - name: PERSON_WITH_ESCORT_FS_RATIO_LOWER_BOUND
+            value: "0.7"
+          - name: PERSON_WITH_ESCORT_FS_RATIO_UPPER_BOUND
+            value: "1.5"
+          - name: PERSON_WITH_ESCORT_DISTANCE_FS_LOWER_MULTIPLIER
+            value: "3"
+          - name: PERSON_WITH_ESCORT_DISTANCE_FS_UPPER_MULTIPLIER
+            value: "15"
+          - name: PERSON_WITH_ESCORT_TIME_DISTANCE_BETWEEN_MATCHES
+            value: "500"
+          - name: PERSON_WITH_ESCORT_INSERT_CACHE_LIFESPAN
+            value: "5000"
+          - name: PERSON_WITH_ESCORT_PAIR_CACHE_LIFESPAN
+            value: "5000"
+
+          
+
             

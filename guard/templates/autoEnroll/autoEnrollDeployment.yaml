@@ -30,11 +30,15 @@ spec:
           - name: Config__RegisterMaxFaceSize
             value: "600"
           - name: Config__RegisterFaceConfidence
-            value: "1000"
+            value: "3000"
           - name: Config__Conditions_YawAngle__Min
-            value: "-16"
+            value: "-20"
           - name: Config__Conditions_YawAngle__Max
-            value: "16"
+            value: "20"
+          - name: Config__Conditions_RollAngle__Min
+            value: "-20"
+          - name: Config__Conditions_RollAngle__Max
+            value: "20"
           - name: Config__DebugOutputFolder
             value: ""
           - name: Config__MaxParallelActionBlocks
