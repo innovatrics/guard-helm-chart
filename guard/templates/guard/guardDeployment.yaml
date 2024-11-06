@@ -201,7 +201,7 @@ spec:
           - name: TRIGGER_WATCHLIST_ATTENTION_LEVEL_3
             value: "0"
           - name: TRIGGER_WATCHLIST_NAME_4
-            value: "Employes"
+            value: "Employees"
           - name: TRIGGER_WATCHLIST_ATTENTION_LEVEL_4
             value: "0"
           - name: LOITERING_MINIMAL_DETECTION_INTERVAL_SECONDS
@@ -225,7 +225,7 @@ spec:
           - name: WATCHLIST_VISITOR_EXPIRATION_SECONDS_VIP
             value: "0"
           - name: PERSON_WITH_ESCORT_VALID_ESCORT_WATCHLISTS
-            value: "Employes"
+            value: "Employees"
           - name: ENABLE_LOGGING
             value: "true"
           - name: LOG_LEVEL
