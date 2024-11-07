@@ -40,7 +40,7 @@ spec:
           - name: Config__Conditions_RollAngle__Max
             value: "20"
           - name: Config__Conditions__Sharpness__Min
-            value: "-10000"
+            value: "-8000"
           - name: Config__Conditions__FaceSize__Min
             value: "35"
           - name: Config__Conditions__FaceQuality__Min
