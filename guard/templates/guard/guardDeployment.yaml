@@ -250,7 +250,5 @@ spec:
             value: "5000"
           - name: PERSON_WITH_ESCORT_PAIR_CACHE_LIFESPAN
             value: "5000"
-
-          
-
-            
+          - name: FCM_ALL_TOPIC
+             value: "allProd"
