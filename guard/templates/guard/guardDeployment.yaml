@@ -18,7 +18,7 @@ spec:
       - name: "sf-gitlab-registry-creds"
       containers:
       - name: guard
-        image: registry.gitlab.com/innovatrics/smartface/guard:v1.0.100
+        image: registry.gitlab.com/innovatrics/smartface/guard:v1.0.101
         ports:
           - containerPort: 8000
         env:
@@ -251,4 +251,4 @@ spec:
           - name: PERSON_WITH_ESCORT_PAIR_CACHE_LIFESPAN
             value: "5000"
           - name: FCM_ALL_TOPIC
-             value: "allProd"
+            value: "allProd"
