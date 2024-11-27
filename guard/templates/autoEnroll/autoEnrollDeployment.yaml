@@ -49,6 +49,8 @@ spec:
             value: ""
           - name: Config__MaxParallelActionBlocks
             value: "1"
+          - name: Config__FramePaddingRelative
+            value: "0.15"
 
           - name: Source__GraphQL__Host
             value: {{ .Values.smartface.graphqlApi.dnsHost }}
