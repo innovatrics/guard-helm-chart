@@ -18,7 +18,7 @@ spec:
       - name: "sf-gitlab-registry-creds"
       containers:
       - name: auto-enroll
-        image: registry.gitlab.com/innovatrics/smartface/integrations-auto-enroll:0.2.10
+        image: registry.gitlab.com/innovatrics/smartface/integrations-auto-enroll:0.2.12
         imagePullPolicy: Always
         ports:
         - containerPort: 80
@@ -31,13 +31,13 @@ spec:
             value: "600"
           - name: Config__RegisterFaceConfidence
             value: "1000"
-          - name: Config__Conditions_YawAngle__Min
+          - name: Config__Conditions__YawAngle__Min
             value: "-20"
-          - name: Config__Conditions_YawAngle__Max
+          - name: Config__Conditions__YawAngle__Max
             value: "20"
-          - name: Config__Conditions_RollAngle__Min
+          - name: Config__Conditions__RollAngle__Min
             value: "-20"
-          - name: Config__Conditions_RollAngle__Max
+          - name: Config__Conditions__RollAngle__Max
             value: "20"
           - name: Config__Conditions__Sharpness__Min
             value: "-8000"
@@ -47,9 +47,11 @@ spec:
             value: "2000"
           - name: Config__DebugOutputFolder
             value: ""
+          - name: Config__DuplicateSearchThreshold
+            value: "32"
           - name: Config__MaxParallelActionBlocks
             value: "1"
-          - name: Config__FramePaddingRelative
+          - name: Config__Conditions__FramePaddingRelative 
             value: "0.15"
 
           - name: Source__GraphQL__Host
