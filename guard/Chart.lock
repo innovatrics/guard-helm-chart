@@ -1,9 +1,9 @@
 dependencies:
 - name: smartface
   repository: oci://ghcr.io/innovatrics/sf-helm
-  version: 0.8.6
+  version: 0.8.8
 - name: graphql-engine
   repository: https://hasura.github.io/helm-charts
   version: 0.6.0
-digest: sha256:ec5f101587f2eaffeffe2ccab3887851ba20e8e91552f01ffdea77b1fa4f931a
-generated: "2024-11-26T09:32:38.58278651Z"
+digest: sha256:084db589c8c85a92fdc658892b9d0b355d5d88ac68587e0a55fcfb0f6a777f4a
+generated: "2024-12-12T12:31:58.669043747Z"
