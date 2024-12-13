@@ -4,7 +4,7 @@ description: A Helm chart for Kubernetes
 
 dependencies:
   - name: smartface
-    version: "0.8.6"
+    version: "0.8.8"
     repository: "oci://ghcr.io/innovatrics/sf-helm"
   - name: graphql-engine
     version: "0.6.0"
