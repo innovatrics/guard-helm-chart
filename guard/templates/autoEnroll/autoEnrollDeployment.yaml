@@ -55,6 +55,8 @@ spec:
             value: "0.15"
           - name: Config__EnrollStrategy
             value: "BestOfTracklet"
+          - name: "Sanitization__WatchlistIds__0"
+            value: "unknown"
           - name: Source__GraphQL__Host
             value: {{ .Values.smartface.graphqlApi.dnsHost }}
           - name: Source__GraphQL__Port
