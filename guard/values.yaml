@@ -3,6 +3,10 @@ smartface:
     dnsHost: "api.guard.smartfacecloud.com"
   graphqlApi:
     dnsHost: "graphql.guard.smartfacecloud.com"
+  configurations:
+    faceTemplate:
+      extractionAlgorithm: "accurate_mask"
+      compatibilityVersion: "1.40"
 
 imagePullSecrets:
   - name: "sf-gitlab-registry-creds"
