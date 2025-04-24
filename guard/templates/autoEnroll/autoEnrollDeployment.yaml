@@ -60,7 +60,9 @@ spec:
           - name: Source__GraphQL__Host
             value: {{ .Values.smartface.graphqlApi.dnsHost }}
           - name: Source__GraphQL__Port
-            value: "80"
+            value: "443"
+          - name: Source__GraphQL__Schema
+            value: "https"
           - name: Target__Host
             value: {{ .Values.smartface.authApi.dnsHost }}
           - name: Target__Port
