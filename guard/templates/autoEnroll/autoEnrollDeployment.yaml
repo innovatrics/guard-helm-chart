@@ -18,7 +18,7 @@ spec:
       - name: "sf-gitlab-registry-creds"
       containers:
       - name: auto-enroll
-        image: registry.gitlab.com/innovatrics/smartface/integrations-auto-enroll:0.2.14
+        image: registry.gitlab.com/innovatrics/smartface/integrations-auto-enroll:0.3.2
         imagePullPolicy: Always
         ports:
         - containerPort: 80
@@ -55,10 +55,14 @@ spec:
             value: "0.15"
           - name: Config__EnrollStrategy
             value: "BestOfTracklet"
+          - name: Sanitization__WatchlistIds__0
+            value: "unknown"
           - name: Source__GraphQL__Host
             value: {{ .Values.smartface.graphqlApi.dnsHost }}
           - name: Source__GraphQL__Port
-            value: "80"
+            value: "443"
+          - name: Source__GraphQL__Schema
+            value: "https"
           - name: Target__Host
             value: {{ .Values.smartface.authApi.dnsHost }}
           - name: Target__Port

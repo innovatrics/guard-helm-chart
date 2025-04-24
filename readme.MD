@@ -67,5 +67,5 @@ kubectx nameOfCluster # to switch cluster
 2. Go to guard folder. And run.
 
 ```bash
-helm upgrade --install guard . --namespace guard
+helm upgrade --install guard . --namespace guard -f values.yaml -f guard.values.yaml
 ```
